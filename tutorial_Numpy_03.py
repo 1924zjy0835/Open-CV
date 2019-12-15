@@ -11,7 +11,7 @@ def access_pixels(image):
     print("width:%s,height:%s,channels:%s"% (width,height,channels))
 
 
-    # 遍历每一个像素点，并且修改么一个像素点的值。
+    # 遍历每一个像素点，并且修改一个像素点的值。
     for row in range(height):
         for col in range(width):
             for c in range(channels):
@@ -45,6 +45,7 @@ def create_image():
 
 #     此时就已经可以进行显示了
     cv.imshow('Image Windows02',img)
+
 
     2.创建一个单通道8位的图像进行显示
     # 在这里我们学到了怎么初始化图像，
@@ -85,7 +86,7 @@ def create_image():
     print(m1)
 
 #     使用reshape()函数进行转换数组的维度
-#     reshape()函数只是改变的数据的标识形式，但是并不会改变数据
+#     reshape()函数只是改变的数据的表示形式，但是并不会改变数据
     m2 = m1.reshape([1,9])
     print(m2)
 
@@ -94,13 +95,12 @@ src = cv.imread('./images/handsomeboy01.jpg')
 cv.namedWindow("Image Windows01",cv.WINDOW_AUTOSIZE)
 cv.imshow("Image Windows01",src)
 
-
-# getTickCount()返回从操作系统启动到当前所经过的计时周期数
+# getTickCount()返回从操作F系统启动到当前所经过的计时周期数
 t1 = cv.getTickCount()
 access_pixels(src)
 # getTickCount()函数，返回从操作系统启动到当前的计时周期数
 
-# 此时就只是调用自己穿件图片的函数create_image()
+# 此时就只是调用自己创建图片的函数create_image()
 create_image()
 
 t2 = cv.getTickCount()
@@ -113,6 +113,4 @@ time = (t2 - t1) / cv.getTickFrequency()
 # print('当前所用的时间为：%s ms' % time*1000)
 print('当前所用的时间为：%s ms' % (time*1000))
 cv.waitKey(0)
-
-
 cv.destroyAllWindows()
